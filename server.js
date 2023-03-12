@@ -7,6 +7,9 @@ const path = require('path');
 // adding fs //
 const fs = require('fs');
 
+// adding npm i morgan //
+const morgan = require('morgan');
+
 // adding app = express //
 const app = express();
 
@@ -15,6 +18,17 @@ const app = express();
 // 3000 is for local //
 // Using || means if process.env.PORT is not available, use 3000 //
 const PORT = process.env.PORT || 3000;
+
+// using morgan to request logging //
+// morgan('tiny') is for logging the request method, url, and status code //
+// morgan('dev') is for logging the request method, url, status code, and response time //
+// morgan('combined') is for logging the request method, url, status code, response time, and response length //
+// morgan('common') is for logging the request method, url, status code, and response length //
+// morgan('short') is for logging the request method, url, and status code //
+
+
+app.use(morgan('tiny'));
+
 
 // adding middleware //
 // urlencoded is for parsing data from html forms = x-www-form-urlencoded //
@@ -74,4 +88,13 @@ app.delete('/api/notes/:id', (req, res) => {
 app.listen(PORT, () => {
     console.log(`App listening on PORT ${PORT}`);
 });
+
+// Insomnia //
+// To test the routes, we will use Insomnia //
+// To access https format, we need to add a certificate //
+// https://localhost:3000 // DO NOT USE
+
+// to access http format, it is the right way //
+// http://localhost:3000 //
+
 
