@@ -37,7 +37,7 @@ app.get('/', (req, res) => {
 
 // setting up the route for getting the saved note db/db.json //
 app.get('/api/notes', (req, res) => {
-    fs.Readfile(path.join(__dirname, 'db/db.json'), 'utf8', (err, data) => {
+    fs.readFile(path.join(__dirname, 'db/db.json'), 'utf8', (err, data) => {
         if (err) throw err;
         res.json(JSON.parse(data));
     });
@@ -59,13 +59,13 @@ app.post('/api/notes', (req, res) => {
 
 // setting up the route for deleting the saved note db/db.json //
 app.delete('/api/notes/:id', (req, res) => {
-    fs.readFile(path.join(__dirname, 'db/db.json'), 'utf8', (err, data) => {
-        if (err) throw err;
+    fs.readFile(dbPath, 'utf8', (err, data) => {
+        if (err) return res.status(500).send(err);
         const notes = JSON.parse(data);
         const newNotes = notes.filter(note => note.id !== req.params.id);
-        fs.writeFile(path.join(__dirname, 'db/db.json'), JSON.stringify(newNotes), err => {
-            if (err) throw err;
-            res.json(newNotes);
+        fs.writeFile(dbPath, JSON.stringify(newNotes), err => {
+            if (err) return res.status(500).send(err);
+            res.status(204).send();
         });
     });
 });
