@@ -21,4 +21,9 @@ var quill = new Quill('.note-textarea', {
   theme: 'snow'
 });
 
-var content = quill.root.innerHTML;
+var select = document.getElementById('paper-select');
+select.addEventListener('change', function() {
+  var paperUrl = this.value;
+  var editor = document.querySelector('.ql-editor');
+  editor.style.backgroundImage = 'url(' + paperUrl + ')';
+});
