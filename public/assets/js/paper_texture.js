@@ -8,8 +8,7 @@ paperSelect.addEventListener("change", function() {
 
 
 // adding Quill //
-
-var quill = new Quill('.note-textarea', {
+var quill = new Quill('#note-textarea', {
   modules: {
     toolbar: [
       [{ header: [1, 2, false] }],
@@ -19,11 +18,4 @@ var quill = new Quill('.note-textarea', {
   },
   placeholder: 'Compose an epic...',
   theme: 'snow'
-});
-
-var select = document.getElementById('paper-select');
-select.addEventListener('change', function() {
-  var paperUrl = this.value;
-  var editor = document.querySelector('.ql-editor');
-  editor.style.backgroundImage = 'url(' + paperUrl + ')';
 });
