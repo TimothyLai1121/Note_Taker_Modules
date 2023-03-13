@@ -29,6 +29,8 @@ body {
   resize: none;
   height: calc(100% - 63px);
   padding-top: 15px;
+  background-image: url("");
+  background-size: cover;
 }
 
 .note-title {
