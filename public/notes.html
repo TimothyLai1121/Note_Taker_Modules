@@ -1,84 +1,87 @@
 <!DOCTYPE html>
 <html lang="en-US">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Note Taker</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
-      integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="/assets/css/styles.css" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote.min.css" rel="stylesheet" integrity="sha512-jT6jO+a+wPmKv/e/z1aLAtcGqOqQ9vZxDl/OoJhA0Yt/oA5F5hkQ/H0K/Z1d924g38xZpL0N/wW8bvRPOvgs+eA==" crossorigin="anonymous" referrerpolicy="no-referrer">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote.min.js" integrity="sha512-6rE6Bx6fCBpRXG/FWpQmvguMWDLWMQjPycXMr35Zx/HRD9nwySZswkkLksgyQcvrpYMx0FELLJVBvWFtubZhDQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Note Taker</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+    integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous" />
+  <link rel="stylesheet" href="/assets/css/styles.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote.min.css" rel="stylesheet"
+    integrity="sha512-jT6jO+a+wPmKv/e/z1aLAtcGqOqQ9vZxDl/OoJhA0Yt/oA5F5hkQ/H0K/Z1d924g38xZpL0N/wW8bvRPOvgs+eA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote.min.js"
+    integrity="sha512-6rE6Bx6fCBpRXG/FWpQmvguMWDLWMQjPycXMr35Zx/HRD9nwySZswkkLksgyQcvrpYMx0FELLJVBvWFtubZhDQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-  <body>
-    <nav class="navbar bg-info">
-      <a class="navbar-brand text-light p-3" href="/">Note Taker </a>
-      <div class="icons">
-        <i class="fas fa-save text-light save-note"></i>
-        <i class="fas fa-plus text-light new-note"></i>
-      </div>
-    </nav>
-    <div>
 
+</head>
+
+<body>
+  <nav class="navbar bg-info">
+    <a class="navbar-brand text-light p-3" href="/">Note Taker </a>
+    <div class="icons">
+      <i class="fas fa-save text-light save-note"></i>
+      <i class="fas fa-plus text-light new-note"></i>
     </div>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-4 list-container">
-          <div class="card">
-            <ul class="list-group"></ul>
-          </div>
-        </div> 
-        <div class="col-8">
-          <select id="paper-select">
-            <option value="">Select a paper texture</option>
-            <option value="./assets/seamless_paper_texture/Canvas.jpeg">Canvas</option>
-            <option value="./assets/seamless_paper_texture/Cardboard.jpeg">Cardboard</option>
-            <option value="./assets/seamless_paper_texture/Cotton.jpeg">Cotton</option>
-            <option value="./assets/seamless_paper_texture/Grunge.jpeg">Grunge</option>
-            <option value="./assets/seamless_paper_texture/Handmade.jpeg">Handmade</option>
-            <option value="./assets/seamless_paper_texture/Ivory.jpeg">Ivory</option>
-            <option value="./assets/seamless_paper_texture/Kraft.jpeg">Kraft</option>
-            <option value="./assets/seamless_paper_texture/Linen.jpeg">Linen</option>
-            <option value="./assets/seamless_paper_texture/Nouveau.jpeg">Nouveau</option>
-            <option value="./assets/seamless_paper_texture/Old.jpeg">Old</option>
-            <option value="./assets/seamless_paper_texture/Paperboard.jpeg">Paperboard</option>
-            <option value="./assets/seamless_paper_texture/Press.jpeg">Press</option>
-            <option value="./assets/seamless_paper_texture/Recycle.jpeg">Recycle</option>
-            <option value="./assets/seamless_paper_texture/Smooth.jpeg">Smooth</option>
-            <option value="./assets/seamless_paper_texture/Stained.jpeg">Stained</option>
-            <option value="./assets/seamless_paper_texture/Watercolor.jpeg">Watercolor</option>
-            </select>
-            <img id="preview" src="" alt="Preview Texture" />
-          <input
-            class="note-title"
-            placeholder="Note Title"
-            maxlength="28"
-            type="text"
-          />
-          
-            <textarea class="note-textarea" placeholder="Note Text"></textarea>
-          
-          
+  </nav>
+  <div>
+
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-4 list-container">
+        <div class="card">
+          <ul class="list-group"></ul>
         </div>
       </div>
-    </div>
-    <script src="/assets/js/index.js"></script>
-    <script src="/assets/js/paper_texture.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script>
-      $(document).ready(function() {
-        $('.note-textarea').summernote();
-      });
-    </script>
+      <div class="col-8">
+        <select id="paper-select">
+          <option value="">Select a paper texture</option>
+          <option value="./assets/seamless_paper_texture/Canvas.jpeg"
+            title="<img src='./assets/seamless_paper_texture/Canvas.jpeg' alt='Canvas preview' />">Canvas</option>
+          <option value="./assets/seamless_paper_texture/Cardboard.jpeg"
+            title="<img src='./assets/seamless_paper_texture/Cardboard.jpeg' alt='Cardboard preview' />">Cardboard
+          </option>
+          <option value="./assets/seamless_paper_texture/Cotton.jpeg">Cotton</option>
+          <option value="./assets/seamless_paper_texture/Grunge.jpeg">Grunge</option>
+          <option value="./assets/seamless_paper_texture/Handmade.jpeg">Handmade</option>
+          <option value="./assets/seamless_paper_texture/Ivory.jpeg">Ivory</option>
+          <option value="./assets/seamless_paper_texture/Kraft.jpeg">Kraft</option>
+          <option value="./assets/seamless_paper_texture/Linen.jpeg">Linen</option>
+          <option value="./assets/seamless_paper_texture/Nouveau.jpeg">Nouveau</option>
+          <option value="./assets/seamless_paper_texture/Old.jpeg">Old</option>
+          <option value="./assets/seamless_paper_texture/Paperboard.jpeg">Paperboard</option>
+          <option value="./assets/seamless_paper_texture/Press.jpeg">Press</option>
+          <option value="./assets/seamless_paper_texture/Recycle.jpeg">Recycle</option>
+          <option value="./assets/seamless_paper_texture/Smooth.jpeg">Smooth</option>
+          <option value="./assets/seamless_paper_texture/Stained.jpeg">Stained</option>
+          <option value="./assets/seamless_paper_texture/Watercolor.jpeg">Watercolor</option>
+        </select>
+        <img id="preview" src="" alt="Preview Texture" />
+        <input class="note-title" placeholder="Note Title" maxlength="28" type="text" />
 
-  </body>
+        <textarea class="note-textarea" placeholder="Note Text"></textarea>
+
+
+      </div>
+    </div>
+  </div>
+  <script src="/assets/js/index.js"></script>
+  <script src="/assets/js/paper_texture.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"
+    integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+    $(document).ready(function () {
+      $('.note-textarea').summernote();
+    });
+  </script>
+
+</body>
+
 </html>
