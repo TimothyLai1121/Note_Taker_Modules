@@ -1,30 +1,25 @@
-const paperSelect = document.querySelector("#paper-select");
+const paperSelectElement = document.querySelector("#paper-select");
 const textarea = document.querySelector(".note-textarea");
 
-paperSelect.addEventListener("change", function() {
-  const selectedPaper = paperSelect.value;
+paperSelectElement.addEventListener("change", function() {
+  const selectedPaper = paperSelectElement.value;
   textarea.style.backgroundImage = `url(${selectedPaper})`;
 });
 
-/*
-// adding Quill //
-var quill = new Quill('#note-textarea', {
-  modules: {
-    toolbar: [
-      [{ header: [1, 2, false] }],
-      ['bold', 'italic', 'underline'],
-      ['image', 'code-block']
-    ]
-  },
-  placeholder: 'Compose an epic...',
-  theme: 'snow'
+var paperStyleSelect = document.querySelector("#paper-select");
+var noteTitle = document.querySelector(".note-title");
+var noteTextarea = document.querySelector(".note-textarea");
+
+paperStyleSelect.addEventListener("change", function() {
+  switch (this.value) {
+    case "./assets/seamless_paper_texture/Canvas.jpeg":
+      noteTitle.style.fontFamily = "Arial";
+      noteTitle.style.fontSize = "20px";
+      noteTitle.style.fontWeight = "bold";
+      noteTextarea.style.fontFamily = "Arial";
+      noteTextarea.style.fontSize = "16px";
+      noteTextarea.style.fontWeight = "normal";
+      break;
+
+  }
 });
-*/
-
-// adding previewImage() by onchange @ html //
-// get the selected value from the dropdown //
-function previewImage() {
-  var selectedValue = document.getElementById("paper-select").value;
-
-  document.getElementById("preview").src = selectedValue;
-}
