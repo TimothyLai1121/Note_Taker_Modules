@@ -6,7 +6,7 @@ paperSelect.addEventListener("change", function() {
   textarea.style.backgroundImage = `url(${selectedPaper})`;
 });
 
-
+/*
 // adding Quill //
 var quill = new Quill('#note-textarea', {
   modules: {
@@ -19,3 +19,12 @@ var quill = new Quill('#note-textarea', {
   placeholder: 'Compose an epic...',
   theme: 'snow'
 });
+*/
+
+// adding previewImage() by onchange @ html //
+// get the selected value from the dropdown //
+function previewImage() {
+  var selectedValue = document.getElementById("paper-select").value;
+
+  document.getElementById("preview").src = selectedValue;
+}
