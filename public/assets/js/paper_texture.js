@@ -14,10 +14,10 @@ paperStyleSelect.addEventListener("change", function() {
   switch (this.value) {
     case "./assets/seamless_paper_texture/Canvas.jpeg":
       noteTitle.style.fontFamily = "Arial";
-      noteTitle.style.fontSize = "20px";
+      noteTitle.style.fontSize = "40px";
       noteTitle.style.fontWeight = "bold";
       noteTextarea.style.fontFamily = "Arial";
-      noteTextarea.style.fontSize = "16px";
+      noteTextarea.style.fontSize = "32px";
       noteTextarea.style.fontWeight = "normal";
       break;
 
