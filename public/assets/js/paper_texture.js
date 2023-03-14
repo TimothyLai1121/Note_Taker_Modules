@@ -1,9 +1,6 @@
-const paperSelect = document.querySelector("#paper-select");
-const textarea = document.querySelector(".note-textarea");
+const paperSelect = document.getElementById("paper-select");
+  const noteTextarea = document.querySelector(".note-textarea");
 
-paperSelect.addEventListener("change", function() {
-  const selectedPaper = paperSelect.value;
-  textarea.style.backgroundImage = `url(${selectedPaper})`;
-});
-
-
+  paperSelect.addEventListener("change", function() {
+    noteTextarea.value = this.value;
+  });
