@@ -6,32 +6,4 @@ paperSelect.addEventListener("change", function() {
   textarea.style.backgroundImage = `url(${selectedPaper})`;
 });
 
-/*
-// adding Quill //
-var quill = new Quill('#note-textarea', {
-  modules: {
-    toolbar: [
-      [{ header: [1, 2, false] }],
-      ['bold', 'italic', 'underline'],
-      ['image', 'code-block']
-    ]
-  },
-  placeholder: 'Compose an epic...',
-  theme: 'snow'
-});
-*/
 
-// implement more style with option paper texture //
-
-const handleNoteSave = () => {
-  const selectedPaper = paperSelect.value;
-  const newNote = {
-    title: noteTitle.value,
-    text: noteText.value,
-    selectedPaper: selectedPaper
-  };
-  saveNote(newNote).then(() => {
-    getAndRenderNotes();
-    renderActiveNote();
-  });
-};
