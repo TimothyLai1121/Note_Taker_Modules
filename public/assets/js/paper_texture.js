@@ -1,25 +1,37 @@
-const paperSelectElement = document.querySelector("#paper-select");
+const paperSelect = document.querySelector("#paper-select");
 const textarea = document.querySelector(".note-textarea");
 
-paperSelectElement.addEventListener("change", function() {
-  const selectedPaper = paperSelectElement.value;
+paperSelect.addEventListener("change", function() {
+  const selectedPaper = paperSelect.value;
   textarea.style.backgroundImage = `url(${selectedPaper})`;
 });
 
-var paperStyleSelect = document.querySelector("#paper-select");
-var noteTitle = document.querySelector(".note-title");
-var noteTextarea = document.querySelector(".note-textarea");
-
-paperStyleSelect.addEventListener("change", function() {
-  switch (this.value) {
-    case "./assets/seamless_paper_texture/Canvas.jpeg":
-      noteTitle.style.fontFamily = "Arial";
-      noteTitle.style.fontSize = "40px";
-      noteTitle.style.fontWeight = "bold";
-      noteTextarea.style.fontFamily = "Arial";
-      noteTextarea.style.fontSize = "32px";
-      noteTextarea.style.fontWeight = "normal";
-      break;
-
-  }
+/*
+// adding Quill //
+var quill = new Quill('#note-textarea', {
+  modules: {
+    toolbar: [
+      [{ header: [1, 2, false] }],
+      ['bold', 'italic', 'underline'],
+      ['image', 'code-block']
+    ]
+  },
+  placeholder: 'Compose an epic...',
+  theme: 'snow'
 });
+*/
+
+// implement more style with option paper texture //
+
+const handleNoteSave = () => {
+  const selectedPaper = paperSelect.value;
+  const newNote = {
+    title: noteTitle.value,
+    text: noteText.value,
+    selectedPaper: selectedPaper
+  };
+  saveNote(newNote).then(() => {
+    getAndRenderNotes();
+    renderActiveNote();
+  });
+};
