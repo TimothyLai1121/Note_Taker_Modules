@@ -1,13 +1,9 @@
-// Variables to hold references to the name, note, and save button elements
 let noteTitle;
 let noteText;
 let saveNoteBtn;
 let newNoteBtn;
 let noteList;
 
-// if the current page's pathname is /notes, the code then sets these variables to the elements in the DOM with the corresponding CSS classes//
-// .note-title, .note-textarea, .save-note, .new-note, and .list-container .list-group//
-// if the pathname is not /notes, the variables will be undefined//
 if (window.location.pathname === '/notes') {
   noteTitle = document.querySelector('.note-title');
   noteText = document.querySelector('.note-textarea');
@@ -16,8 +12,6 @@ if (window.location.pathname === '/notes') {
   noteList = document.querySelectorAll('.list-container .list-group');
 }
 
-// Show & hide element //
-// used to show or hide an element in the DOM by changing it's display style//
 // Show an element
 const show = (elem) => {
   elem.style.display = 'inline';
@@ -28,13 +22,9 @@ const hide = (elem) => {
   elem.style.display = 'none';
 };
 
-
 // activeNote is used to keep track of the note in the textarea
 let activeNote = {};
 
-// Fetch Functions //
-
-// getNotes function to makes a GET request to /api/notes and retrieve notes from server //
 const getNotes = () =>
   fetch('/api/notes', {
     method: 'GET',
@@ -43,8 +33,6 @@ const getNotes = () =>
     },
   });
 
-
-// saveNote function to makes a POST request to /api/notes //  
 const saveNote = (note) =>
   fetch('/api/notes', {
     method: 'POST',
@@ -54,7 +42,6 @@ const saveNote = (note) =>
     body: JSON.stringify(note),
   });
 
-// deleteNote function to makes a DELETE request to /api/notes/:id , where id of the note passed as an argument //  
 const deleteNote = (id) =>
   fetch(`/api/notes/${id}`, {
     method: 'DELETE',
@@ -62,11 +49,6 @@ const deleteNote = (id) =>
       'Content-Type': 'application/json',
     },
   });
-
-
-
-
-
 
 const renderActiveNote = () => {
   hide(saveNoteBtn);
@@ -199,3 +181,4 @@ if (window.location.pathname === '/notes') {
 }
 
 getAndRenderNotes();
+
