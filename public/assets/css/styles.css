@@ -3,7 +3,6 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-  
 }
 
 .save-note {
@@ -25,13 +24,6 @@ body {
   border: none;
 }
 
-.note-textarea {
-  resize: none;
-  height: calc(100% - 63px);
-  padding-top: 15px;
-  background-image: url("");
-  background-size: cover;
-}
 
 .note-title {
   height: 50px;
@@ -81,5 +73,11 @@ body {
 }
 
 
-/* additional styles */
 
+.note-textarea {
+  resize: none;
+  height: calc(100% - 63px);
+  padding-top: 15px;
+  background-image: url("");
+  background-size: cover;
+}
