@@ -7,10 +7,11 @@ $(document).ready(function() {
 
     // Apply the selected texture as a background image to the textarea element
     if (selectedTexture) {
-      $('.note-textarea').css('background-image', `url(${selectedTexture})`);
+      $('.note-textarea').css('background-image', `url(${selectedTexture}`);
     } else {
       // Remove the background image if no option is selected
       $('.note-textarea').css('background-image', '');
     }
   });
 });
+
