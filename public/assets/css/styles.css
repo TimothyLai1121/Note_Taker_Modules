@@ -24,6 +24,11 @@ body {
   border: none;
 }
 
+.note-textarea {
+  resize: none;
+  height: calc(100% - 63px);
+  padding-top: 15px;
+}
 
 .note-title {
   height: 50px;
@@ -72,12 +77,3 @@ body {
   cursor: pointer;
 }
 
-
-
-.note-textarea {
-  resize: none;
-  height: calc(100% - 63px);
-  padding-top: 15px;
-  background-image: url("");
-  background-size: cover;
-}
