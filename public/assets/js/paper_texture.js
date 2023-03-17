@@ -1,4 +1,6 @@
 // paper_texture w/ jquery plugin //
+// mistake 2 hours, Jquery before js.... //
+
 $(document).ready(function() {
   // Add an event listener for the change event on the select element
   $('#paper-select').on('change', function() {
